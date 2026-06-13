@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Clean & Shine Pressure Washing | Smyrna, TN</title>
+<meta name="description" content="Professional pressure washing in Smyrna, TN. Driveways, houses, decks, roofs & more. Free quotes. Call (615) 568-0163." />
+<style>
+  :root{
+    --primary:#0369A1;      /* water blue */
+    --primary-dark:#075985;
+    --accent:#22D3EE;       /* cyan */
+    --ink:#0F1B2A;
+    --body:#33475B;
+    --muted:#6B7B8C;
+    --bg:#FFFFFF;
+    --bg-soft:#F1F7FB;
+    --line:#E2EAF0;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(3,105,161,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       color:var(--body);line-height:1.6;background:var(--bg);-webkit-font-smoothing:antialiased}
+  h1,h2,h3{color:var(--ink);line-height:1.15;font-weight:800}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;border-radius:999px;
+       padding:14px 26px;font-size:16px;cursor:pointer;border:2px solid transparent;transition:.18s;min-height:48px}
+  .btn-primary{background:var(--primary);color:#fff}
+  .btn-primary:hover{background:var(--primary-dark)}
+  .btn-accent{background:var(--accent);color:#03283a}
+  .btn-accent:hover{filter:brightness(1.05)}
+  .btn-ghost{background:#fff;color:var(--primary);border-color:var(--primary)}
+  .btn-ghost:hover{background:var(--bg-soft)}
+  .eyebrow{color:var(--primary);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:13px}
+  section{padding:72px 0}
+  .center{text-align:center}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);
+       backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{font-weight:900;font-size:22px;color:var(--ink);letter-spacing:-.5px}
+  .logo span{color:var(--primary)}
+  .nav-links{display:flex;align-items:center;gap:28px}
+  .nav-links a{font-weight:600;color:var(--body)}
+  .nav-links a:hover{color:var(--primary)}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .nav-phone{font-weight:800;color:var(--primary)}
+  .hamburger{display:none;background:none;border:0;cursor:pointer;font-size:28px;color:var(--ink)}
+
+  /* HERO */
+  .hero{background:linear-gradient(135deg,#0369A1 0%,#075985 55%,#0c4a6e 100%);color:#fff;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:0;background:
+      radial-gradient(circle at 80% 20%,rgba(34,211,238,.25),transparent 40%);pointer-events:none}
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-top:64px;padding-bottom:64px}
+  .hero h1{color:#fff;font-size:46px;margin-bottom:16px}
+  .hero p.lead{font-size:19px;color:#dff1fb;margin-bottom:28px;max-width:540px}
+  .hero .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px}
+  .trust{display:flex;gap:22px;flex-wrap:wrap;color:#cdeafb;font-weight:600;font-size:14px}
+  .trust b{color:#fff}
+  .hero-card{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.25);
+       border-radius:18px;padding:10px;backdrop-filter:blur(2px)}
+  .photo-ph{background:repeating-linear-gradient(135deg,#0b3a52,#0b3a52 14px,#0e4763 14px,#0e4763 28px);
+       border-radius:12px;display:flex;align-items:center;justify-content:center;color:#bfe3f5;
+       font-weight:700;text-align:center;padding:24px;min-height:300px;border:2px dashed rgba(191,227,245,.5)}
+
+  /* trust bar */
+  .bar{background:var(--bg-soft);border-bottom:1px solid var(--line);padding:18px 0}
+  .bar .wrap{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;text-align:center}
+  .bar div b{display:block;color:var(--primary);font-size:24px;font-weight:900}
+  .bar div span{font-size:13px;color:var(--muted);font-weight:600}
+
+  /* SERVICES */
+  .grid{display:grid;gap:22px}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;
+        box-shadow:var(--shadow);transition:.2s}
+  .card:hover{transform:translateY(-4px);border-color:#bfe3f5}
+  .ic{width:54px;height:54px;border-radius:12px;background:var(--bg-soft);display:flex;align-items:center;
+      justify-content:center;font-size:26px;margin-bottom:16px}
+  .card h3{font-size:19px;margin-bottom:8px}
+  .card p{font-size:15px;color:var(--body)}
+  .section-head{max-width:680px;margin:0 auto 44px}
+  .section-head h2{font-size:34px;margin:8px 0 12px}
+  .section-head p{font-size:17px;color:var(--muted)}
+
+  /* WHY */
+  .why{background:var(--bg-soft)}
+  .why .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .why ul{list-style:none;margin-top:18px;display:grid;gap:16px}
+  .why li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
+  .why li b{color:var(--ink)}
+  .check{flex:0 0 26px;width:26px;height:26px;border-radius:50%;background:var(--primary);color:#fff;
+         display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900}
+
+  /* GALLERY */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .gallery .photo-ph{min-height:200px;background:repeating-linear-gradient(135deg,#e8f3fa,#e8f3fa 14px,#dcecf6 14px,#dcecf6 28px);
+       color:#5b8aa6;border-color:#bcd9ea}
+
+  /* TESTIMONIALS */
+  .tests{background:linear-gradient(180deg,#fff, var(--bg-soft))}
+  .quote{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+  .stars{color:#f5a623;font-size:18px;margin-bottom:10px}
+  .quote p{font-size:16px;color:var(--ink);font-style:italic}
+  .quote .who{margin-top:14px;font-weight:700;color:var(--primary);font-style:normal;font-size:14px}
+
+  /* CTA strip */
+  .cta-strip{background:var(--primary);color:#fff;text-align:center}
+  .cta-strip h2{color:#fff;font-size:32px;margin-bottom:10px}
+  .cta-strip p{color:#dff1fb;margin-bottom:24px;font-size:18px}
+
+  /* CONTACT */
+  .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  form{display:grid;gap:16px}
+  label{font-weight:700;font-size:14px;color:var(--ink);display:block;margin-bottom:6px}
+  input,textarea{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;font-size:16px;font-family:inherit;background:#fff}
+  input:focus,textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(3,105,161,.12)}
+  .info-row{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px}
+  .info-row .ic{margin:0;flex:0 0 54px}
+  .info-row b{color:var(--ink);display:block}
+  .info-row a{color:var(--primary);font-weight:700}
+  .map-ph{border-radius:var(--radius);min-height:180px;margin-top:8px}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:#aebfce;padding:40px 0;text-align:center}
+  footer .logo{color:#fff;margin-bottom:8px}
+  footer a{color:#bfe3f5}
+  .foot-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin:14px 0;font-weight:600}
+
+  /* MOBILE */
+  @media(max-width:880px){
+    .nav-links{display:none}
+    .nav-links.open{display:flex;position:absolute;top:68px;left:0;right:0;background:#fff;flex-direction:column;
+        gap:0;padding:8px 20px 18px;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+    .nav-links.open a{padding:12px 0;border-bottom:1px solid var(--line)}
+    .hamburger{display:block}
+    .nav-phone{display:none}
+    .hero .wrap{grid-template-columns:1fr;padding-top:44px;padding-bottom:48px}
+    .hero h1{font-size:34px}
+    .why .wrap,.contact .wrap{grid-template-columns:1fr;gap:28px}
+    .grid-3,.gallery{grid-template-columns:1fr}
+    section{padding:52px 0}
+    .btn{width:100%;justify-content:center}
+    .nav-cta .btn{width:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#home" class="logo">Clean <span>&amp; Shine</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#gallery">Our Work</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+16155680163" class="nav-phone">(615) 568-0163</a>
+      <a href="#contact" class="btn btn-primary">Free Quote</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" style="color:#bfe3f5">Smyrna, TN &amp; Surrounding Areas</span>
+      <h1>Bring Back That Like-New Shine</h1>
+      <p class="lead">Professional pressure &amp; soft washing for driveways, homes, decks, and more.
+        Locally owned, fully equipped, and rated 4.9 stars by your neighbors.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-accent">Get My Free Quote</a>
+        <a href="tel:+16155680163" class="btn btn-ghost" style="background:transparent;color:#fff;border-color:#fff">&#9742; Call (615) 568-0163</a>
+      </div>
+      <div class="trust">
+        <span><b>4.9&#9733;</b> Google Rated</span>
+        <span><b>Locally</b> Owned</span>
+        <span><b>Free</b> Estimates</span>
+        <span><b>Fast</b> Turnaround</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="photo-ph">[ HERO PHOTO ]<br>Before/after of a freshly washed driveway or home</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="bar">
+  <div class="wrap">
+    <div><b>4.9&#9733;</b><span>31+ Google Reviews</span></div>
+    <div><b>100%</b><span>Satisfaction Focused</span></div>
+    <div><b>Same-Week</b><span>Scheduling</span></div>
+    <div><b>Res. &amp; Comm.</b><span>We Do Both</span></div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">What We Clean</span>
+      <h2>Our Pressure Washing Services</h2>
+      <p>From a quick driveway refresh to a full exterior soft wash, we restore your property safely and thoroughly.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><div class="ic">&#128739;</div><h3>Driveways &amp; Sidewalks</h3><p>Blast away oil stains, dirt, and grime to instantly boost your curb appeal.</p></div>
+      <div class="card"><div class="ic">&#127968;</div><h3>House Soft Washing</h3><p>Gentle, low-pressure cleaning that removes mildew and dirt without harming siding.</p></div>
+      <div class="card"><div class="ic">&#129681;</div><h3>Decks &amp; Patios</h3><p>Revive weathered wood and concrete so your outdoor space is ready to enjoy.</p></div>
+      <div class="card"><div class="ic">&#127981;</div><h3>Roof Cleaning</h3><p>Safely remove black streaks and algae to protect and extend your roof's life.</p></div>
+      <div class="card"><div class="ic">&#128682;</div><h3>Fences &amp; Decks</h3><p>Bring back the original color of fences and railings with a careful wash.</p></div>
+      <div class="card"><div class="ic">&#127970;</div><h3>Commercial</h3><p>Storefronts, lots, and dumpster pads kept clean and inviting for your customers.</p></div>
+    </div>
+    <div class="center" style="margin-top:34px">
+      <a href="#contact" class="btn btn-primary">Request a Free Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div>
+      <div class="photo-ph" style="min-height:320px">[ TEAM / WORK PHOTO ]<br>You on the job, your truck/equipment, or a great before-after</div>
+    </div>
+    <div>
+      <span class="eyebrow">Why Choose Us</span>
+      <h2 style="font-size:32px;margin:8px 0">Your Neighbors Trust Us &mdash; You Can Too</h2>
+      <ul>
+        <li><span class="check">&#10003;</span><span><b>Locally owned &amp; operated.</b> We live here too and treat your home like our own.</span></li>
+        <li><span class="check">&#10003;</span><span><b>The right method every time.</b> Soft wash for delicate surfaces, pressure where it's safe.</span></li>
+        <li><span class="check">&#10003;</span><span><b>On-time &amp; tidy.</b> We show up when we say and leave your property spotless.</span></li>
+        <li><span class="check">&#10003;</span><span><b>Free, no-pressure quotes.</b> Know the price up front with zero obligation.</span></li>
+      </ul>
+      <div style="margin-top:26px"><a href="#contact" class="btn btn-primary">Get Started</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Our Work</span>
+      <h2>See the Difference</h2>
+      <p>A few of our favorite before-and-after transformations around Smyrna.</p>
+    </div>
+    <div class="gallery">
+      <div class="photo-ph">[ PHOTO 1 ]<br>Driveway before/after</div>
+      <div class="photo-ph">[ PHOTO 2 ]<br>House siding</div>
+      <div class="photo-ph">[ PHOTO 3 ]<br>Deck or patio</div>
+      <div class="photo-ph">[ PHOTO 4 ]<br>Roof cleaning</div>
+      <div class="photo-ph">[ PHOTO 5 ]<br>Sidewalk / concrete</div>
+      <div class="photo-ph">[ PHOTO 6 ]<br>Commercial job</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="tests" id="reviews">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Reviews</span>
+      <h2>What Customers Are Saying</h2>
+      <p>Rated 4.9 stars across 31+ Google reviews.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"They showed up early and pressure washed the driveway and sidewalk."</p>
+        <div class="who">&mdash; Google Review</div></div>
+      <div class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"[ Add a real 5-star review here once the site is approved. ]"</p>
+        <div class="who">&mdash; Verified Customer</div></div>
+      <div class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"[ Add another favorite customer quote here. ]"</p>
+        <div class="who">&mdash; Verified Customer</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="cta-strip">
+  <div class="wrap">
+    <h2>Ready for a Cleaner Property?</h2>
+    <p>Get your free quote today &mdash; most estimates within 24 hours.</p>
+    <a href="tel:+16155680163" class="btn btn-accent">&#9742; Call (615) 568-0163</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Get In Touch</span>
+      <h2 style="font-size:32px;margin:8px 0 6px">Request Your Free Quote</h2>
+      <p style="color:var(--muted);margin-bottom:24px">Tell us about your project and we'll get right back to you.</p>
+      <!-- Formspree: replace XXXXXX with the real form ID after signup at formspree.io -->
+      <form action="https://formspree.io/f/XXXXXX" method="POST">
+        <div><label for="name">Name</label><input id="name" name="name" required placeholder="Your name" /></div>
+        <div><label for="email">Email</label><input id="email" type="email" name="email" required placeholder="you@email.com" /></div>
+        <div><label for="phone">Phone</label><input id="phone" type="tel" name="phone" placeholder="(615) 000-0000" /></div>
+        <div><label for="message">What do you need cleaned?</label><textarea id="message" name="message" rows="4" placeholder="Driveway, house, deck..."></textarea></div>
+        <button type="submit" class="btn btn-primary">Send My Request</button>
+      </form>
+    </div>
+    <div>
+      <div class="info-row"><div class="ic">&#9742;</div><div><b>Call or Text</b><a href="tel:+16155680163">(615) 568-0163</a></div></div>
+      <div class="info-row"><div class="ic">&#128205;</div><div><b>Service Area</b>Smyrna, TN &amp; surrounding communities</div></div>
+      <div class="info-row"><div class="ic">&#128336;</div><div><b>Hours</b>Mon&ndash;Sat: 8 AM &ndash; 7 PM</div></div>
+      <div class="info-row"><div class="ic">&#9993;</div><div><b>Email</b><a href="#">[ add business email ]</a></div></div>
+      <div class="photo-ph map-ph">[ GOOGLE MAP EMBED of service area ]</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="logo">Clean &amp; Shine</div>
+    <div>Professional Pressure Washing &bull; Smyrna, TN</div>
+    <div class="foot-links">
+      <a href="#services">Services</a><a href="#gallery">Our Work</a>
+      <a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+      <a href="tel:+16155680163">(615) 568-0163</a>
+    </div>
+    <div style="font-size:13px;color:#7d93a8">&copy; 2026 Clean &amp; Shine Pressure Washing. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  var burger=document.getElementById('hamburger');
+  var links=document.getElementById('navLinks');
+  burger.addEventListener('click',function(){links.classList.toggle('open');});
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){links.classList.remove('open');});
+  });
+</script>
+</body>
+</html>
