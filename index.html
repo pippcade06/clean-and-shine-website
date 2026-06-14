@@ -30,14 +30,55 @@
   .btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;border-radius:999px;
        padding:14px 26px;font-size:16px;cursor:pointer;border:2px solid transparent;transition:.18s;min-height:48px}
   .btn-primary{background:var(--primary);color:#fff}
-  .btn-primary:hover{background:var(--primary-dark)}
+  .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px)}
   .btn-accent{background:var(--accent);color:#03283a}
-  .btn-accent:hover{filter:brightness(1.05)}
+  .btn-accent:hover{filter:brightness(1.05);transform:translateY(-2px)}
   .btn-ghost{background:#fff;color:var(--primary);border-color:var(--primary)}
   .btn-ghost:hover{background:var(--bg-soft)}
   .eyebrow{color:var(--primary);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:13px}
   section{padding:72px 0}
   .center{text-align:center}
+
+  /* ===== MOTION ===== */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .grid-3 > .reveal:nth-child(1){transition-delay:.04s}
+  .grid-3 > .reveal:nth-child(2){transition-delay:.12s}
+  .grid-3 > .reveal:nth-child(3){transition-delay:.20s}
+  .grid-3 > .reveal:nth-child(4){transition-delay:.28s}
+  .grid-3 > .reveal:nth-child(5){transition-delay:.36s}
+  .grid-3 > .reveal:nth-child(6){transition-delay:.44s}
+  .gallery > .reveal:nth-child(2){transition-delay:.08s}
+  .gallery > .reveal:nth-child(3){transition-delay:.16s}
+  .gallery > .reveal:nth-child(4){transition-delay:.24s}
+  .gallery > .reveal:nth-child(5){transition-delay:.32s}
+  .gallery > .reveal:nth-child(6){transition-delay:.40s}
+  @keyframes riseIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  .hero-anim > *{opacity:0;animation:riseIn .75s cubic-bezier(.2,.7,.2,1) forwards}
+  .hero-anim > *:nth-child(1){animation-delay:.10s}
+  .hero-anim > *:nth-child(2){animation-delay:.20s}
+  .hero-anim > *:nth-child(3){animation-delay:.30s}
+  .hero-anim > *:nth-child(4){animation-delay:.40s}
+  .hero-anim > *:nth-child(5){animation-delay:.50s}
+  .hero-card{animation:riseIn .9s cubic-bezier(.2,.7,.2,1) .35s both}
+
+  /* Before/after slider */
+  .ba{position:relative;width:100%;min-height:330px;border-radius:12px;overflow:hidden;
+      user-select:none;touch-action:none;box-shadow:var(--shadow)}
+  .ba-panel{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:flex-start;
+      padding:16px;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#fff}
+  .ba-after{background:repeating-linear-gradient(135deg,#0a4f73,#0a4f73 16px,#0e5e88 16px,#0e5e88 32px)}
+  .ba-after .tag{background:var(--accent);color:#03283a;padding:6px 12px;border-radius:999px}
+  .ba-before{background:repeating-linear-gradient(135deg,#5f6b6f,#5f6b6f 16px,#6e797d 16px,#6e797d 32px);
+      clip-path:inset(0 50% 0 0)}
+  .ba-before .tag{background:rgba(0,0,0,.55);padding:6px 12px;border-radius:999px}
+  .ba-line{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;transform:translateX(-50%);pointer-events:none}
+  .ba-knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;
+      background:#fff;color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:18px;
+      font-weight:900;box-shadow:0 4px 14px rgba(0,0,0,.3);pointer-events:none}
+  .ba-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+  .ba-hint{position:absolute;top:14px;left:50%;transform:translateX(-50%);background:rgba(15,27,42,.7);color:#fff;
+      font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;pointer-events:none}
 
   /* NAV */
   header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);
@@ -62,11 +103,6 @@
   .hero .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px}
   .trust{display:flex;gap:22px;flex-wrap:wrap;color:#cdeafb;font-weight:600;font-size:14px}
   .trust b{color:#fff}
-  .hero-card{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.25);
-       border-radius:18px;padding:10px;backdrop-filter:blur(2px)}
-  .photo-ph{background:repeating-linear-gradient(135deg,#0b3a52,#0b3a52 14px,#0e4763 14px,#0e4763 28px);
-       border-radius:12px;display:flex;align-items:center;justify-content:center;color:#bfe3f5;
-       font-weight:700;text-align:center;padding:24px;min-height:300px;border:2px dashed rgba(191,227,245,.5)}
 
   /* trust bar */
   .bar{background:var(--bg-soft);border-bottom:1px solid var(--line);padding:18px 0}
@@ -78,10 +114,11 @@
   .grid{display:grid;gap:22px}
   .grid-3{grid-template-columns:repeat(3,1fr)}
   .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;
-        box-shadow:var(--shadow);transition:.2s}
-  .card:hover{transform:translateY(-4px);border-color:#bfe3f5}
+        box-shadow:var(--shadow);transition:transform .2s,border-color .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-6px);border-color:#bfe3f5;box-shadow:0 18px 40px rgba(3,105,161,.16)}
   .ic{width:54px;height:54px;border-radius:12px;background:var(--bg-soft);display:flex;align-items:center;
-      justify-content:center;font-size:26px;margin-bottom:16px}
+      justify-content:center;font-size:26px;margin-bottom:16px;transition:transform .2s}
+  .card:hover .ic{transform:scale(1.08) rotate(-3deg)}
   .card h3{font-size:19px;margin-bottom:8px}
   .card p{font-size:15px;color:var(--body)}
   .section-head{max-width:680px;margin:0 auto 44px}
@@ -96,15 +133,21 @@
   .why li b{color:var(--ink)}
   .check{flex:0 0 26px;width:26px;height:26px;border-radius:50%;background:var(--primary);color:#fff;
          display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900}
+  .photo-ph{background:repeating-linear-gradient(135deg,#e8f3fa,#e8f3fa 14px,#dcecf6 14px,#dcecf6 28px);
+       border-radius:12px;display:flex;align-items:center;justify-content:center;color:#5b8aa6;
+       font-weight:700;text-align:center;padding:24px;min-height:300px;border:2px dashed #bcd9ea}
 
   /* GALLERY */
   .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  .gallery .photo-ph{min-height:200px;background:repeating-linear-gradient(135deg,#e8f3fa,#e8f3fa 14px,#dcecf6 14px,#dcecf6 28px);
-       color:#5b8aa6;border-color:#bcd9ea}
+  .gallery .photo-ph{min-height:200px;overflow:hidden}
+  .gallery .photo-ph{transition:transform .3s}
+  .gallery .photo-ph:hover{transform:scale(1.03)}
 
   /* TESTIMONIALS */
   .tests{background:linear-gradient(180deg,#fff, var(--bg-soft))}
-  .quote{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+  .quote{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);
+       transition:transform .2s}
+  .quote:hover{transform:translateY(-4px)}
   .stars{color:#f5a623;font-size:18px;margin-bottom:10px}
   .quote p{font-size:16px;color:var(--ink);font-style:italic}
   .quote .who{margin-top:14px;font-weight:700;color:var(--primary);font-style:normal;font-size:14px}
@@ -148,6 +191,15 @@
     .btn{width:100%;justify-content:center}
     .nav-cta .btn{width:auto}
   }
+
+  /* Respect reduced-motion preference */
+  @media(prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto}
+    .reveal{opacity:1 !important;transform:none !important;transition:none !important}
+    .hero-anim > *,.hero-card{animation:none !important;opacity:1 !important}
+    .btn:hover,.card:hover,.quote:hover,.gallery .photo-ph:hover{transform:none !important}
+    .card:hover .ic{transform:none !important}
+  }
 </style>
 </head>
 <body>
@@ -174,7 +226,7 @@
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="wrap">
-    <div>
+    <div class="hero-anim">
       <span class="eyebrow" style="color:#bfe3f5">Smyrna, TN &amp; Surrounding Areas</span>
       <h1>Bring Back That Like-New Shine</h1>
       <p class="lead">Professional pressure &amp; soft washing for driveways, homes, decks, and more.
@@ -191,7 +243,15 @@
       </div>
     </div>
     <div class="hero-card">
-      <div class="photo-ph">[ HERO PHOTO ]<br>Before/after of a freshly washed driveway or home</div>
+      <!-- Interactive before/after slider (drag the handle) -->
+      <div class="ba" id="ba">
+        <div class="ba-panel ba-after"><span class="tag">After &#10003;</span></div>
+        <div class="ba-panel ba-before" id="baBefore"><span class="tag">Before</span></div>
+        <div class="ba-line" id="baLine"></div>
+        <div class="ba-knob" id="baKnob">&#8596;</div>
+        <div class="ba-hint">&#8592; Drag to compare &#8594;</div>
+        <input class="ba-range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Before and after slider" />
+      </div>
     </div>
   </div>
 </section>
@@ -199,8 +259,8 @@
 <!-- TRUST BAR -->
 <div class="bar">
   <div class="wrap">
-    <div><b>4.9&#9733;</b><span>31+ Google Reviews</span></div>
-    <div><b>100%</b><span>Satisfaction Focused</span></div>
+    <div><b data-count="4.9" data-suffix="&#9733;" data-dec="1">0&#9733;</b><span>31+ Google Reviews</span></div>
+    <div><b data-count="100" data-suffix="%">0%</b><span>Satisfaction Focused</span></div>
     <div><b>Same-Week</b><span>Scheduling</span></div>
     <div><b>Res. &amp; Comm.</b><span>We Do Both</span></div>
   </div>
@@ -209,20 +269,20 @@
 <!-- SERVICES -->
 <section id="services">
   <div class="wrap">
-    <div class="section-head center">
+    <div class="section-head center reveal">
       <span class="eyebrow">What We Clean</span>
       <h2>Our Pressure Washing Services</h2>
       <p>From a quick driveway refresh to a full exterior soft wash, we restore your property safely and thoroughly.</p>
     </div>
     <div class="grid grid-3">
-      <div class="card"><div class="ic">&#128739;</div><h3>Driveways &amp; Sidewalks</h3><p>Blast away oil stains, dirt, and grime to instantly boost your curb appeal.</p></div>
-      <div class="card"><div class="ic">&#127968;</div><h3>House Soft Washing</h3><p>Gentle, low-pressure cleaning that removes mildew and dirt without harming siding.</p></div>
-      <div class="card"><div class="ic">&#129681;</div><h3>Decks &amp; Patios</h3><p>Revive weathered wood and concrete so your outdoor space is ready to enjoy.</p></div>
-      <div class="card"><div class="ic">&#127981;</div><h3>Roof Cleaning</h3><p>Safely remove black streaks and algae to protect and extend your roof's life.</p></div>
-      <div class="card"><div class="ic">&#128682;</div><h3>Fences &amp; Decks</h3><p>Bring back the original color of fences and railings with a careful wash.</p></div>
-      <div class="card"><div class="ic">&#127970;</div><h3>Commercial</h3><p>Storefronts, lots, and dumpster pads kept clean and inviting for your customers.</p></div>
+      <div class="card reveal"><div class="ic">&#128739;</div><h3>Driveways &amp; Sidewalks</h3><p>Blast away oil stains, dirt, and grime to instantly boost your curb appeal.</p></div>
+      <div class="card reveal"><div class="ic">&#127968;</div><h3>House Soft Washing</h3><p>Gentle, low-pressure cleaning that removes mildew and dirt without harming siding.</p></div>
+      <div class="card reveal"><div class="ic">&#129681;</div><h3>Decks &amp; Patios</h3><p>Revive weathered wood and concrete so your outdoor space is ready to enjoy.</p></div>
+      <div class="card reveal"><div class="ic">&#127981;</div><h3>Roof Cleaning</h3><p>Safely remove black streaks and algae to protect and extend your roof's life.</p></div>
+      <div class="card reveal"><div class="ic">&#128682;</div><h3>Fences &amp; Decks</h3><p>Bring back the original color of fences and railings with a careful wash.</p></div>
+      <div class="card reveal"><div class="ic">&#127970;</div><h3>Commercial</h3><p>Storefronts, lots, and dumpster pads kept clean and inviting for your customers.</p></div>
     </div>
-    <div class="center" style="margin-top:34px">
+    <div class="center reveal" style="margin-top:34px">
       <a href="#contact" class="btn btn-primary">Request a Free Quote</a>
     </div>
   </div>
@@ -231,10 +291,10 @@
 <!-- WHY -->
 <section class="why" id="why">
   <div class="wrap">
-    <div>
+    <div class="reveal">
       <div class="photo-ph" style="min-height:320px">[ TEAM / WORK PHOTO ]<br>You on the job, your truck/equipment, or a great before-after</div>
     </div>
-    <div>
+    <div class="reveal">
       <span class="eyebrow">Why Choose Us</span>
       <h2 style="font-size:32px;margin:8px 0">Your Neighbors Trust Us &mdash; You Can Too</h2>
       <ul>
@@ -251,18 +311,18 @@
 <!-- GALLERY -->
 <section id="gallery">
   <div class="wrap">
-    <div class="section-head center">
+    <div class="section-head center reveal">
       <span class="eyebrow">Our Work</span>
       <h2>See the Difference</h2>
       <p>A few of our favorite before-and-after transformations around Smyrna.</p>
     </div>
     <div class="gallery">
-      <div class="photo-ph">[ PHOTO 1 ]<br>Driveway before/after</div>
-      <div class="photo-ph">[ PHOTO 2 ]<br>House siding</div>
-      <div class="photo-ph">[ PHOTO 3 ]<br>Deck or patio</div>
-      <div class="photo-ph">[ PHOTO 4 ]<br>Roof cleaning</div>
-      <div class="photo-ph">[ PHOTO 5 ]<br>Sidewalk / concrete</div>
-      <div class="photo-ph">[ PHOTO 6 ]<br>Commercial job</div>
+      <div class="photo-ph reveal">[ PHOTO 1 ]<br>Driveway before/after</div>
+      <div class="photo-ph reveal">[ PHOTO 2 ]<br>House siding</div>
+      <div class="photo-ph reveal">[ PHOTO 3 ]<br>Deck or patio</div>
+      <div class="photo-ph reveal">[ PHOTO 4 ]<br>Roof cleaning</div>
+      <div class="photo-ph reveal">[ PHOTO 5 ]<br>Sidewalk / concrete</div>
+      <div class="photo-ph reveal">[ PHOTO 6 ]<br>Commercial job</div>
     </div>
   </div>
 </section>
@@ -270,19 +330,19 @@
 <!-- TESTIMONIALS -->
 <section class="tests" id="reviews">
   <div class="wrap">
-    <div class="section-head center">
+    <div class="section-head center reveal">
       <span class="eyebrow">Reviews</span>
       <h2>What Customers Are Saying</h2>
       <p>Rated 4.9 stars across 31+ Google reviews.</p>
     </div>
     <div class="grid grid-3">
-      <div class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="quote reveal"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p>"They showed up early and pressure washed the driveway and sidewalk."</p>
         <div class="who">&mdash; Google Review</div></div>
-      <div class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="quote reveal"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p>"[ Add a real 5-star review here once the site is approved. ]"</p>
         <div class="who">&mdash; Verified Customer</div></div>
-      <div class="quote"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="quote reveal"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p>"[ Add another favorite customer quote here. ]"</p>
         <div class="who">&mdash; Verified Customer</div></div>
     </div>
@@ -291,7 +351,7 @@
 
 <!-- CTA STRIP -->
 <section class="cta-strip">
-  <div class="wrap">
+  <div class="wrap reveal">
     <h2>Ready for a Cleaner Property?</h2>
     <p>Get your free quote today &mdash; most estimates within 24 hours.</p>
     <a href="tel:+16155680163" class="btn btn-accent">&#9742; Call (615) 568-0163</a>
@@ -301,7 +361,7 @@
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="wrap">
-    <div>
+    <div class="reveal">
       <span class="eyebrow">Get In Touch</span>
       <h2 style="font-size:32px;margin:8px 0 6px">Request Your Free Quote</h2>
       <p style="color:var(--muted);margin-bottom:24px">Tell us about your project and we'll get right back to you.</p>
@@ -314,7 +374,7 @@
         <button type="submit" class="btn btn-primary">Send My Request</button>
       </form>
     </div>
-    <div>
+    <div class="reveal">
       <div class="info-row"><div class="ic">&#9742;</div><div><b>Call or Text</b><a href="tel:+16155680163">(615) 568-0163</a></div></div>
       <div class="info-row"><div class="ic">&#128205;</div><div><b>Service Area</b>Smyrna, TN &amp; surrounding communities</div></div>
       <div class="info-row"><div class="ic">&#128336;</div><div><b>Hours</b>Mon&ndash;Sat: 8 AM &ndash; 7 PM</div></div>
@@ -339,6 +399,8 @@
 </footer>
 
 <script>
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // Mobile menu
   var burger=document.getElementById('hamburger');
   var links=document.getElementById('navLinks');
@@ -346,6 +408,63 @@
   links.querySelectorAll('a').forEach(function(a){
     a.addEventListener('click',function(){links.classList.remove('open');});
   });
+
+  // Scroll reveal
+  var reveals=document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    reveals.forEach(function(el){el.classList.add('in');});
+  } else {
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:.14, rootMargin:'0px 0px -40px 0px'});
+    reveals.forEach(function(el){io.observe(el);});
+  }
+
+  // Animated counters
+  function runCounters(){
+    document.querySelectorAll('[data-count]').forEach(function(el){
+      var target=parseFloat(el.getAttribute('data-count'));
+      var dec=parseInt(el.getAttribute('data-dec')||'0',10);
+      var suffix=el.getAttribute('data-suffix')||'';
+      if(reduce){ el.innerHTML=target.toFixed(dec)+suffix; return; }
+      var start=null, dur=1300;
+      function step(ts){
+        if(!start) start=ts;
+        var p=Math.min((ts-start)/dur,1);
+        var eased=1-Math.pow(1-p,3);
+        el.innerHTML=(target*eased).toFixed(dec)+suffix;
+        if(p<1) requestAnimationFrame(step);
+        else el.innerHTML=target.toFixed(dec)+suffix;
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  var bar=document.querySelector('.bar');
+  if(bar){
+    if(reduce || !('IntersectionObserver' in window)){ runCounters(); }
+    else{
+      var bio=new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ runCounters(); bio.disconnect(); } });
+      },{threshold:.4});
+      bio.observe(bar);
+    }
+  }
+
+  // Before/after slider
+  (function(){
+    var range=document.getElementById('baRange');
+    var before=document.getElementById('baBefore');
+    var line=document.getElementById('baLine');
+    var knob=document.getElementById('baKnob');
+    if(!range) return;
+    function set(v){
+      before.style.clipPath='inset(0 '+(100-v)+'% 0 0)';
+      line.style.left=v+'%';
+      knob.style.left=v+'%';
+    }
+    range.addEventListener('input',function(){set(parseFloat(range.value));});
+    set(50);
+  })();
 </script>
 </body>
 </html>
